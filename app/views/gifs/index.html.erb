@@ -1,0 +1,19 @@
+<%#<div class="jumbotron">%>
+  <%#<h1>Serious Gifs</h1>%>
+  <%#<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>%>
+  <%#<p><a class="btn btn-lg btn-success" href="#">Sign up today</a></p>%>
+<%#</div>%>
+
+<% @gifs.each_slice(3) do |gifs| %>
+  <div class="row">
+    <% gifs.each do |gif| %>
+      <div class="col-xs-4">
+        <%= link_to image_tag(gif.url, class: "img-responsive"), gif %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<br />
+<%= will_paginate @gifs, renderer: BootstrapPagination::Rails %>
+
