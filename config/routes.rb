@@ -5,5 +5,7 @@ AnimatedgifMe::Application.routes.draw do
     end
   end
 
+  get "/:tag", to: "gifs#random"
+
   root to: "gifs#index"
 end

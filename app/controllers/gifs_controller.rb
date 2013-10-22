@@ -17,6 +17,11 @@ class GifsController < ApplicationController
   def show
   end
 
+  def random
+    @gif   = Gif.tagged_with(params[:tag].parameterize).order("RAND()").first
+    @gif ||= Gif.order("RAND()").first
+  end
+
   # GET /gifs/new
   def new
     @gif = Gif.new
