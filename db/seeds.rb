@@ -635,6 +635,6 @@
 "http://cdn.dropmark.com/19112/da89695352ce77fdf591c4d5eac71af49a6fc6fb/1ajQ1.jpg",
 "http://cdn.dropmark.com/19112/377132f11c992c25d96e5b315a106822cde0c074/1a3of.jpg",
 "http://cdn.dropmark.com/19112/860684bb30e099f49bda261c8f8c229d319d16bc/2gugmyu.jpg",
-].each do |url |
+].reverse.each do |url |
   Gif.create url: url
 end
