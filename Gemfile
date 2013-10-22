@@ -37,3 +37,10 @@ gem "font-awesome-rails", "~> 3.2.1.3"
 gem "acts-as-taggable-on", "~> 2.4.1"
 gem "will_paginate", "~> 3.0.5"
 gem "will_paginate-bootstrap", "~> 1.0.0"
+
+group :development do
+  gem 'capistrano', github: "capistrano/capistrano", require: false
+  gem 'capistrano-rbenv', github: "capistrano/rbenv", require: false
+  gem 'capistrano-bundler', github: "capistrano/bundler", require: false
+  gem 'capistrano-rails', github: "capistrano/rails", require: false
+end
