@@ -70,7 +70,13 @@ class GifsController < ApplicationController
   def update
     respond_to do |format|
       if @gif.update(gif_params)
-        format.html { redirect_to @gif, notice: 'Gif was successfully updated.' }
+        format.html do
+          if params[:commit].include? "More"
+            redirect_to edit_gif_path(Gif.untagged.first), notice: 'Gif was successfully updated.'
+          else
+            redirect_to @gif, notice: 'Gif was successfully updated.'
+          end
+        end
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
