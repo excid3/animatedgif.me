@@ -5,21 +5,39 @@ class GifsController < ApplicationController
   # GET /gifs.json
   def index
     @gifs = Gif.sorted.paginate(page: params[:page], per_page: 18)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @gifs }
+    end
   end
 
   def tagged
     @gifs = Gif.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 18)
-    render action: :index
+
+    respond_to do |format|
+      format.html { render action: :index }
+      format.json { render json: @gifs }
+    end
   end
 
   # GET /gifs/1
   # GET /gifs/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @gif }
+    end
   end
 
   def random
     @gif   = Gif.tagged_with(params[:tag].parameterize).order("RAND()").first
     @gif ||= Gif.order("RAND()").first
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @gif }
+    end
   end
 
   # GET /gifs/new
