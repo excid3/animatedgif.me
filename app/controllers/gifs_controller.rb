@@ -27,6 +27,7 @@ class GifsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @gif }
+      format.gif { redirect_to @gif.url }
     end
   end
 
@@ -37,6 +38,7 @@ class GifsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @gif }
+      format.gif { redirect_to @gif.url }
     end
   end
 
