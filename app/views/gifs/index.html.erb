@@ -8,7 +8,9 @@
   <div class="row">
     <% gifs.each do |gif| %>
       <div class="col-xs-4">
-        <%= link_to image_tag(gif.url, class: "img-responsive"), gif %>
+        <div class="crop">
+          <%= link_to image_tag(gif.url, class: "img-responsive"), gif %>
+        </div>
       </div>
     <% end %>
   </div>
