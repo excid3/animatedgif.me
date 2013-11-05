@@ -1,5 +1,6 @@
 class GifsController < ApplicationController
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :tagged, :show, :random]
 
   # GET /gifs
   # GET /gifs.json
@@ -55,6 +56,7 @@ class GifsController < ApplicationController
   # POST /gifs.json
   def create
     @gif = Gif.new(gif_params)
+    @gif.user = current_user
 
     respond_to do |format|
       if @gif.save
