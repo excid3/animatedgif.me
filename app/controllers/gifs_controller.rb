@@ -5,7 +5,7 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.sorted.paginate(page: params[:page], per_page: 18)
+    @gifs = Gif.sorted.paginate(page: params[:page], per_page: 12)
 
     respond_to do |format|
       format.html
@@ -14,7 +14,7 @@ class GifsController < ApplicationController
   end
 
   def tagged
-    @gifs = Gif.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 18)
+    @gifs = Gif.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 12)
 
     respond_to do |format|
       format.html { render action: :index }
