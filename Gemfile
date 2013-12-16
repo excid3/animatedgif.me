@@ -40,5 +40,5 @@ group :development do
   gem 'capistrano', github: "capistrano/capistrano", require: false
   gem 'capistrano-rbenv', github: "capistrano/rbenv", require: false
   gem 'capistrano-bundler', github: "capistrano/bundler", require: false
-  gem 'capistrano-rails', github: "capistrano/rails", require: false
+  gem 'capistrano-rails', require: false
 end

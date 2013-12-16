@@ -4,6 +4,8 @@
   <%#<p><a class="btn btn-lg btn-success" href="#">Sign up today</a></p>%>
 <%#</div>%>
 
+<p class="text-muted text-center">Do you have what it takes to <%= link_to "add to this magical archive", new_gif_path %>?</p>
+
 <% @gifs.each_slice(3) do |gifs| %>
   <div class="row">
     <% gifs.each do |gif| %>
