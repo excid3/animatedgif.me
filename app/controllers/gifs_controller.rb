@@ -25,6 +25,9 @@ class GifsController < ApplicationController
   # GET /gifs/1
   # GET /gifs/1.json
   def show
+    @next_gif = @gif.next
+    @prev_gif = @gif.prev
+
     respond_to do |format|
       format.html
       format.json { render json: @gif }
