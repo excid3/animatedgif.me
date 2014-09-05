@@ -6,10 +6,10 @@ class Gif < ActiveRecord::Base
   scope :untagged, ->{ includes(:taggings).where("taggings.id" => nil) }
 
   def next
-    self.class.where("id > ?", id).order("id ASC").first
+    self.class.where("id < ?", id).order("id DESC").first
   end
 
   def prev
-    self.class.where("id < ?", id).order("id DESC").first
+    self.class.where("id > ?", id).order("id ASC").first
   end
 end

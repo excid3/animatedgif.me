@@ -7,12 +7,15 @@ $ ->
   $(document).keydown (e) ->
     if e.keyCode == 37
       if $(".pagination .active").length > 0
-        window.location = $(".pagination .active").prev().children().first().attr("href")
+        prev = $(".pagination .active").prev().children().first().attr("href")
       else if $("#gif").length > 0
-        window.location = $("#gif").data("prev")
+        prev = $("#gif").data("prev")
+
+      window.location = prev if prev
 
     else if e.keyCode == 39
       if $(".pagination .active").length > 0
-        window.location = $(".pagination .active").next().children().first().attr("href")
+        next = $(".pagination .active").next().children().first().attr("href")
       else if $("#gif").length > 0
-        window.location = $("#gif").data("next")
+        next = $("#gif").data("next")
+      window.location = next if next
