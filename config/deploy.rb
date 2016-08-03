@@ -27,4 +27,13 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:restart'
+
+  task :bundle_install do
+    on roles(:app) do
+      within release_path do
+        execute :bundle, "--gemfile Gemfile --path #{shared_path}/bundle --quiet --binstubs #{shared_path}bin --without [:test, :development]"
+      end
+    end
+  end
+after 'deploy:updating', 'deploy:bundle_install'
 end
